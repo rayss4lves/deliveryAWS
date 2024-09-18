@@ -1,0 +1,22 @@
+{
+    "Comment": "Um exemplo de fluxo de trabalho para o assistente de delivery",
+    "StartAt": "ValidarPedido",
+    "States": {
+      "ValidarPedido": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-west-2:123456789012:function:ValidarPedido",
+        "Next": "ProcessarPagamento"
+      },
+      "ProcessarPagamento": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-west-2:123456789012:function:ProcessarPagamento",
+        "Next": "AtualizarStatus"
+      },
+      "AtualizarStatus": {
+        "Type": "Task",
+        "Resource": "arn:aws:lambda:us-west-2:123456789012:function:AtualizarStatus",
+        "End": true
+      }
+    }
+  }
+  
